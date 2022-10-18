@@ -3,6 +3,7 @@ const {
   deleteJobPosting,
   findAllJobPosting,
   findByIdJobPosting,
+  updateJobPosting,
 } = require("./../service/jobPostingService");
 const express = require("express");
 
@@ -35,6 +36,14 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     return res.send(await findByIdJobPosting(req.params.id));
+  } catch (error) {
+    return res.send(error);
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    return res.send(await updateJobPosting(req.params.id, req.body));
   } catch (error) {
     return res.send(error);
   }

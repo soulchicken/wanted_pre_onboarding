@@ -24,6 +24,12 @@ exports.findByIdJobPosting = async (id) => {
   );
 };
 
+exports.updateJobPosting = async (id, data) => {
+  console.log(id, data);
+  await JobPosting.update(data, { where: { id } });
+  return this.findByIdJobPosting(id);
+};
+
 const makeFindAllData = (dataArr) => {
   return dataArr.map((data) => {
     return {
