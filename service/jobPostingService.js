@@ -1,4 +1,5 @@
 const { JobPosting, Company } = require("../models");
+const { Op } = require("sequelize");
 
 exports.registerJobPosting = (data) => {
   return JobPosting.create(data);
@@ -44,6 +45,27 @@ exports.updateJobPosting = async (id, data) => {
   console.log(id, data);
   await JobPosting.update(data, { where: { id } });
   return this.findByIdJobPosting(id);
+};
+
+exports.findBySearchQueryJobPosting = async (query) => {
+  const likeQuery = `%${query}%`;
+  const searchResults = await JobPosting.findAll({
+    where: {
+      [Op.or]: [
+        { position: { [Op.like]: likeQuery } },
+        { stack: { [Op.like]: likeQuery } },
+        { description: { [Op.like]: likeQuery } },
+      ],
+    },
+    include: [
+      {
+        model: Company,
+        attributes: ["name", "country", "region"],
+      },
+    ],
+  });
+
+  return makeFindAllData(searchResults);
 };
 
 const makeFindAllData = (dataArr) => {

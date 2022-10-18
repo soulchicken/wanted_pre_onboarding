@@ -4,6 +4,7 @@ const {
   findAllJobPosting,
   findByIdJobPosting,
   updateJobPosting,
+  findBySearchQueryJobPosting,
 } = require("./../service/jobPostingService");
 const express = require("express");
 
@@ -28,6 +29,14 @@ router.delete("/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     return res.send(await findAllJobPosting());
+  } catch (error) {
+    return res.send(error);
+  }
+});
+
+router.get("/search", async (req, res) => {
+  try {
+    return res.send(await findBySearchQueryJobPosting(req.query.query));
   } catch (error) {
     return res.send(error);
   }
