@@ -2,6 +2,7 @@ const Sequelize = require("sequelize");
 const Company = require("./company");
 const JobPosting = require("./jobPosting");
 const Resume = require("./resume");
+const User = require("./user");
 
 require("dotenv").config();
 const env = process.env.NODE_ENV || "development";
@@ -21,9 +22,11 @@ db.sequelize = sequelize;
 db.Company = Company;
 db.JobPosting = JobPosting;
 db.Resume = Resume;
+db.User = User;
 
 Company.init(sequelize);
 JobPosting.init(sequelize);
 Resume.init(sequelize);
+User.init(sequelize);
 
 module.exports = db;
