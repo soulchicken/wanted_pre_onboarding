@@ -30,7 +30,18 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    return res.send(await findAllJobPosting(req.params.id));
+    return res.send(await findAllJobPosting());
+  } catch (error) {
+    return res.send(error);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    return res.send(
+      (await findByIdJobPosting(req.params.id)) ||
+        "해당 채용공고는 존재하지 않습니다."
+    );
   } catch (error) {
     return res.send(error);
   }

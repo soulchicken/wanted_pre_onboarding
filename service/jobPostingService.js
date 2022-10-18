@@ -14,6 +14,10 @@ exports.findAllJobPosting = async () => {
   return makeFindAllData(await JobPosting.findAll());
 };
 
+exports.findByIdJobPosting = async (id) => {
+  return await JobPosting.findByPk(id);
+};
+
 const makeFindAllData = (dataArr) => {
   return dataArr.map((data) => {
     return {
