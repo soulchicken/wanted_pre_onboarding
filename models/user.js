@@ -13,7 +13,7 @@ module.exports = class User extends Sequelize.Model {
         phoneNumber: {
           type: Sequelize.STRING(20),
           allowNull: false, // not null
-          unique: false,
+          unique: true,
         },
         careerYear: {
           type: Sequelize.INTEGER,
