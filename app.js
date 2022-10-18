@@ -3,11 +3,13 @@ const { sequelize } = require("./models");
 const app = express();
 
 const companyRouter = require("./routes/companyRouter");
+const jobPostingRouter = require("./routes/jobPostingRouter");
 
 app.set("port", process.env.PORT || 3000);
 
 app.use(express.json());
 app.use("/company", companyRouter);
+app.use("/job-posting", jobPostingRouter);
 
 sequelize
   .sync({ force: false })
