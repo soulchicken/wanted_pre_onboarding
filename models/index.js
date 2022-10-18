@@ -1,4 +1,6 @@
 const Sequelize = require("sequelize");
+const Company = require("./company");
+
 require("dotenv").config();
 const env = process.env.NODE_ENV || "development";
 
@@ -13,5 +15,9 @@ const sequelize = new Sequelize(
 );
 
 db.sequelize = sequelize;
+
+db.Company = Company;
+
+Company.init(sequelize);
 
 module.exports = db;
