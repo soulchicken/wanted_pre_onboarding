@@ -28,5 +28,11 @@ module.exports = class Resume extends Sequelize.Model {
       onDelete: "cascade",
       onUpdate: "cascade",
     });
+    db.Resume.belongsTo(db.JobPosting, {
+      foreignKey: "jobPosting",
+      targetKey: "id",
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    });
   }
 };
