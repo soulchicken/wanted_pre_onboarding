@@ -4,7 +4,23 @@ const sequelize = require("sequelize");
 module.exports = class User extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
-      {},
+      {
+        name: {
+          type: Sequelize.STRING(20),
+          allowNull: false, // not null
+          unique: false,
+        },
+        phoneNumber: {
+          type: Sequelize.STRING(20),
+          allowNull: false, // not null
+          unique: false,
+        },
+        careerYear: {
+          type: Sequelize.INTEGER,
+          allowNull: false, // not null
+          unique: false,
+        },
+      },
       {
         // If don't want createdAt
         createdAt: false,
