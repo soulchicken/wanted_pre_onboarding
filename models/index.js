@@ -31,5 +31,7 @@ User.init(sequelize);
 
 Company.associate(db);
 JobPosting.associate(db);
+User.associate(db);
+Resume.associate(db);
 
 module.exports = db;

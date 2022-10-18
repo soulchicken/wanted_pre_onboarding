@@ -7,7 +7,7 @@ module.exports = class Resume extends Sequelize.Model {
       {},
       {
         // If don't want createdAt
-        createdAt: false,
+        createdAt: true,
         // If don't want updatedAt
         updatedAt: false,
         sequelize,
@@ -19,5 +19,14 @@ module.exports = class Resume extends Sequelize.Model {
         collate: "utf8_general_ci",
       }
     );
+  }
+
+  static associate(db) {
+    db.Resume.belongsTo(db.User, {
+      foreignKey: "user",
+      targetKey: "id",
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    });
   }
 };
