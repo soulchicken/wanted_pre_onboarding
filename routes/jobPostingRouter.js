@@ -1,6 +1,8 @@
 const {
   registerJobPosting,
   deleteJobPosting,
+  findAllJobPosting,
+  findByIdJobPosting,
 } = require("./../service/jobPostingService");
 const express = require("express");
 
@@ -21,6 +23,14 @@ router.delete("/:id", async (req, res) => {
       return res.send("채용공고 삭제 완료");
     }
     return res.send("해당 채용공고는 존재하지 않습니다.");
+  } catch (error) {
+    return res.send(error);
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    return res.send(await findAllJobPosting(req.params.id));
   } catch (error) {
     return res.send(error);
   }
