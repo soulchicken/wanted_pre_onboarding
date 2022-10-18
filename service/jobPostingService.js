@@ -4,10 +4,14 @@ exports.registerJobPosting = (data) => {
   return JobPosting.create(data);
 };
 
-exports.deleteJobPosting = (id) => {
-  return JobPosting.destroy({
+exports.deleteJobPosting = async (id) => {
+  const row = await JobPosting.destroy({
     where: { id },
   });
+  if (row) {
+    return "채용공고 삭제 완료";
+  }
+  return "해당 채용공고는 존재하지 않습니다.";
 };
 
 exports.findAllJobPosting = async () => {
@@ -15,7 +19,9 @@ exports.findAllJobPosting = async () => {
 };
 
 exports.findByIdJobPosting = async (id) => {
-  return await JobPosting.findByPk(id);
+  return (
+    (await JobPosting.findByPk(id)) || "해당 채용공고는 존재하지 않습니다."
+  );
 };
 
 const makeFindAllData = (dataArr) => {

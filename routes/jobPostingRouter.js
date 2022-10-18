@@ -18,11 +18,7 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const row = await deleteJobPosting(req.params.id);
-    if (row) {
-      return res.send("채용공고 삭제 완료");
-    }
-    return res.send("해당 채용공고는 존재하지 않습니다.");
+    return res.send(await deleteJobPosting(req.params.id));
   } catch (error) {
     return res.send(error);
   }
@@ -38,10 +34,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    return res.send(
-      (await findByIdJobPosting(req.params.id)) ||
-        "해당 채용공고는 존재하지 않습니다."
-    );
+    return res.send(await findByIdJobPosting(req.params.id));
   } catch (error) {
     return res.send(error);
   }
