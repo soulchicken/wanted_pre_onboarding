@@ -60,7 +60,7 @@ const makeFindAllData = (dataArr) => {
   });
 };
 
-const makeFindData = (data) => {
+const makeFindData = async (data) => {
   return {
     id: data.id,
     position: data.position,
@@ -70,5 +70,14 @@ const makeFindData = (data) => {
     company: data.Company.name,
     country: data.Company.country,
     region: data.Company.region,
+    otherPosting: await findOtherPosting(data.company),
   };
+};
+
+const findOtherPosting = async (company) => {
+  return (
+    await JobPosting.findAll({
+      where: { company },
+    })
+  ).map((posting) => posting.id);
 };
