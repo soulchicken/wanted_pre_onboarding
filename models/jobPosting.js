@@ -49,5 +49,10 @@ module.exports = class JobPosting extends Sequelize.Model {
       onDelete: "cascade",
       onUpdate: "cascade",
     });
+
+    db.JobPosting.hasMany(db.Resume, {
+      foreignKey: "jobPosting",
+      sourceKey: "id",
+    });
   }
 };
