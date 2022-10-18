@@ -1,5 +1,4 @@
-const { Sequelize } = require("sequelize");
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
 module.exports = class Company extends Sequelize.Model {
   static init(sequelize) {
@@ -35,5 +34,12 @@ module.exports = class Company extends Sequelize.Model {
         collate: "utf8_general_ci",
       }
     );
+  }
+
+  static associate(db) {
+    db.Company.hasMany(db.JobPosting, {
+      foreignKey: "company",
+      sourceKey: "id",
+    });
   }
 };
