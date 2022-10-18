@@ -44,7 +44,7 @@ module.exports = class JobPosting extends Sequelize.Model {
 
   static associate(db) {
     db.JobPosting.belongsTo(db.Company, {
-      foreignKey: "company_id",
+      foreignKey: "company",
       targetKey: "id",
       onDelete: "cascade",
       onUpdate: "cascade",
