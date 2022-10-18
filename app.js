@@ -1,8 +1,13 @@
 const express = require("express");
 const { sequelize } = require("./models");
-
 const app = express();
+
+const companyRouter = require("./routes/companyRouter");
+
 app.set("port", process.env.PORT || 3000);
+
+app.use(express.json());
+app.use("/company", companyRouter);
 
 sequelize
   .sync({ force: false })
@@ -12,11 +17,6 @@ sequelize
   .catch((err) => {
     console.error(err);
   });
-
-app.get("/", (req, res) => {
-  console.log("get 요청!");
-  res.send("get 요청!");
-});
 
 app.listen(app.get("port"), () => {
   console.log("express 실행");

@@ -1,5 +1,4 @@
-const { Sequelize } = require("sequelize");
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
 module.exports = class Company extends Sequelize.Model {
   static init(sequelize) {
