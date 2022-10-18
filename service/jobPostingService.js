@@ -1,4 +1,5 @@
 const { JobPosting, Company } = require("../models");
+const { Op } = require("sequelize");
 
 exports.registerJobPosting = (data) => {
   return JobPosting.create(data);
@@ -46,6 +47,27 @@ exports.updateJobPosting = async (id, data) => {
   return this.findByIdJobPosting(id);
 };
 
+exports.findBySearchQueryJobPosting = async (query) => {
+  const likeQuery = `%${query}%`;
+  const searchResults = await JobPosting.findAll({
+    where: {
+      [Op.or]: [
+        { position: { [Op.like]: likeQuery } },
+        { stack: { [Op.like]: likeQuery } },
+        { description: { [Op.like]: likeQuery } },
+      ],
+    },
+    include: [
+      {
+        model: Company,
+        attributes: ["name", "country", "region"],
+      },
+    ],
+  });
+
+  return makeFindAllData(searchResults);
+};
+
 const makeFindAllData = (dataArr) => {
   return dataArr.map((data) => {
     return {
@@ -60,7 +82,7 @@ const makeFindAllData = (dataArr) => {
   });
 };
 
-const makeFindData = (data) => {
+const makeFindData = async (data) => {
   return {
     id: data.id,
     position: data.position,
@@ -70,5 +92,14 @@ const makeFindData = (data) => {
     company: data.Company.name,
     country: data.Company.country,
     region: data.Company.region,
+    otherPosting: await findOtherPosting(data.company),
   };
+};
+
+const findOtherPosting = async (company) => {
+  return (
+    await JobPosting.findAll({
+      where: { company },
+    })
+  ).map((posting) => posting.id);
 };
