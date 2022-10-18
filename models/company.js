@@ -38,7 +38,7 @@ module.exports = class Company extends Sequelize.Model {
 
   static associate(db) {
     db.Company.hasMany(db.JobPosting, {
-      foreignKey: "company_id",
+      foreignKey: "company",
       sourceKey: "id",
     });
   }
