@@ -29,4 +29,7 @@ JobPosting.init(sequelize);
 Resume.init(sequelize);
 User.init(sequelize);
 
+Company.associate(db);
+JobPosting.associate(db);
+
 module.exports = db;

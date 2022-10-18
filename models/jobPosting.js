@@ -41,4 +41,13 @@ module.exports = class JobPosting extends Sequelize.Model {
       }
     );
   }
+
+  static associate(db) {
+    db.JobPosting.belongsTo(db.Company, {
+      foreignKey: "company_id",
+      targetKey: "id",
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    });
+  }
 };
