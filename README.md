@@ -24,7 +24,7 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 
 ## ERD
 
-<img src="./image/erd.png" width="500x" title="erd_img"/>
+<img src="./image/erd.png" height="300px" title="img"/>
 
 ---
 
@@ -83,10 +83,61 @@ CRUD 구현 (API + ORM)
 - [x] README 정리
 - [x] ERD 최종본 만들기
 - [x] POSTMAN DOCS 만들기
-- [ ] 구현 화면 캡처 정리
+- [x] 구현 화면 캡처 정리
 
 ---
 
-## API 구현
+## 구현 캡처
 
----
+**00. Sequelize로 테이블 생성**
+
+<img src="./image/00_Sequelize로테이블생성.png" height="300px" title="img"/>
+
+**01. 회사 등록**
+
+<img src="./image/01_회사등록.png" height="300px" title="img"/>
+
+**02. 채용공고 등록**
+
+<img src="./image/02_채용공고등록.png" height="300px" title="img"/>
+
+**03. 채용공고 삭제**
+
+<img src="./image/03_채용공고삭제.png" height="300px" title="img"/>
+
+**04. 채용공고 삭제 - 실패시**
+
+<img src="./image/04_채용공고삭제실패.png" height="300px" title="img"/>
+
+**05. 채용공고 전체 읽기**
+
+<img src="./image/05_채용공고전체읽기.png" height="300px" title="img"/>
+
+**06. 채용공고 상세 페이지 읽기**
+
+<img src="./image/06_채용공고상세페이지.png" height="300px" title="img"/>
+
+**07. 채용공고 상세 페이지 읽기 - 실패시**
+
+<img src="./image/07_채용공고상세페이지조회실패.png" height="300px" title="img"/>
+
+**08. 채용공고 수정**
+
+<img src="./image/08_채용공고수정.png" height="300px" title="img"/>
+
+**09. 채용공고 검색 기능**
+
+<img src="./image/09_채용공고검색기능1.png" height="300px" title="img"/>
+<img src="./image/10_채용공고검색기능2.png" height="300px" title="img"/>
+
+**10. 유저 등록**
+
+<img src="./image/11_유저등록.png" height="300px" title="img"/>
+
+**11. 유저가 채용공고 지원**
+
+<img src="./image/12_유저공고지원.png" height="300px" title="img"/>
+
+**12. 유저가 채용공고를 두 번 지원 (실패)**
+
+<img src="./image/13_유저공고지원실패.png" height="300px" title="img"/>
