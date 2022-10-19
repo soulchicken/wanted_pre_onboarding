@@ -6,23 +6,37 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 - Node.js로 API 서버 구현
 - 서비스 개요 및 요구사항을 만족하는 API 서버를 구현합니다.
 
+---
+
 ## 필수 기술요건
 
-- ORM 사용하여 구현.
-- RDBMS 사용 (SQLite, PostgreSQL 등).
+- ORM 사용하여 구현 - **Sequelize**
+- RDBMS 사용 - **MySQL**
+
+---
 
 ## 서비스 개요
 
 - 본 서비스는 기업의 채용을 위한 웹 서비스 입니다.
 - 회사는 채용공고를 생성하고, 이에 사용자는 지원합니다.
 
+---
+
 ## ERD
 
 <img src="./image/erd.png" width="500x" title="erd_img"/>
 
+---
+
+## API DOCS - PostMan
+
+---
+
 ## 기술 스택
 
 - Sequelize + Express + MySQL
+
+---
 
 ## TO_DO_LIST
 
@@ -33,14 +47,20 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 
 **필수 요구사항**
 
+모델링
+
 - [x] 회사(company) 모델 만들기
 - [x] 채용공고(JobPost) 모델 만들기
 - [x] 사용자(User) 모델 만들기
 - [x] 이력서(Resume) 모델 만들기
 
+연관관계 매핑
+
 - [x] 회사 - 채용공고 연관관계 설정
 - [x] 사용자 - 이력서 연관관계 설정
 - [x] 이력서 - 채용공고 연관관계 설정
+
+CRUD 구현 (API + ORM)
 
 - [x] 채용 공고 등록 (C)
 - [x] 채용 공고 수정 (U)
@@ -56,7 +76,13 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 
 **문서 정리**
 
-- [ ] README 정리
+- [x] README 정리
 - [x] ERD 최종본 만들기
 - [ ] POSTMAN DOCS 만들기
 - [ ] 구현 화면 캡처 정리
+
+---
+
+## API 구현
+
+---
