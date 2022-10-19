@@ -30,6 +30,10 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 
 ## API DOCS - PostMan
 
+[API DOCS 링크](https://documenter.getpostman.com/view/21185842/2s847JtYHt)
+
+- https://documenter.getpostman.com/view/21185842/2s847JtYHt
+
 ---
 
 ## 기술 스택
@@ -78,7 +82,7 @@ CRUD 구현 (API + ORM)
 
 - [x] README 정리
 - [x] ERD 최종본 만들기
-- [ ] POSTMAN DOCS 만들기
+- [x] POSTMAN DOCS 만들기
 - [ ] 구현 화면 캡처 정리
 
 ---
