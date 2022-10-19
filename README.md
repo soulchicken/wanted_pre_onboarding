@@ -18,12 +18,11 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 
 ## ERD
 
-![](./erd.png)
+<img src="./image/erd.png" width="500x" title="erd_img"/>
 
 ## 기술 스택
 
 - Sequelize + Express + MySQL
-- (+ Jest) : 테스팅을 하게 된다면 러닝커브가 낮고 자료가 많은 Jest를 사용할 예정
 
 ## TO_DO_LIST
 
@@ -55,11 +54,9 @@ wanted 프리온보딩 백엔드 코스 선발과제 입니다.
 - [x] 채용 상세 페이지에서 회사가 올린 다른 채용 공고 추가
 - [x] 사용자 채용 공고 지원
 
-- [ ] UNIT TEST
-
-**잡무**
+**문서 정리**
 
 - [ ] README 정리
-- [ ] ERD 최종본 만들기
+- [x] ERD 최종본 만들기
 - [ ] POSTMAN DOCS 만들기
 - [ ] 구현 화면 캡처 정리
